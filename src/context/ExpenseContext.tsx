@@ -202,6 +202,7 @@ export const ExpenseProvider = ({ children }: { children: React.ReactNode }) => 
     expenses,
     filteredExpenses,
     loading,
+    setLoading,
     error,
     addExpense,
     updateExpense,
