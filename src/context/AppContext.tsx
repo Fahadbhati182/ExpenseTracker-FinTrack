@@ -1,4 +1,3 @@
-import { expenses } from "@/assets/assets";
 import type { User } from "@/types/User";
 import { createContext, useContext, useState } from "react";
 

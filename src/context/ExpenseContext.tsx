@@ -71,7 +71,6 @@ export const ExpenseProvider = ({ children }: { children: React.ReactNode }) => 
   const getUserExpenses = useCallback(() => {
     const userId = JSON.parse(localStorage.getItem("userDetails") || '{}').id;
     const userExps = expenses.filter(exp => exp.userId === userId);
-    console.log(userExps)
     setUserExpenses(userExps);
   }, [expenses]);
 
@@ -146,7 +145,7 @@ export const ExpenseProvider = ({ children }: { children: React.ReactNode }) => 
       month_name,
       total_amount_spent: parseFloat(total_amount_spent.toFixed(2)), // Format to 2 decimal places
     }));
-    console.log(result)
+
     return result;
   }, [userExpenses])
 

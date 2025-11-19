@@ -300,8 +300,8 @@ const CreateProfile = () => {
       img = assets.femaleAvatar
     }
     const userDetails: User = { id: Date.now(), name, email, gender, password, img, monthlyBudget: Number(monthlyBudget) };
-    console.log(userDetails)
     saveUserDetails(userDetails);
+    toast.success("Profile Created Successfully")
     navigate("/")
 
     setName("");
