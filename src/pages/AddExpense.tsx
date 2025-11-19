@@ -18,7 +18,7 @@ import type { Expense } from "@/types/Expense";
 
 export default function AddExpensePage() {
   const { addExpense, updateExpense } = useExpense();
-  const { user } = useApp();
+  const { user, getUserDetails } = useApp();
   const navigate = useNavigate();
   const location = useLocation();
   const expenseToBeEdited = location.state?.expense;
@@ -82,7 +82,11 @@ export default function AddExpensePage() {
     }
   }, [expenseToBeEdited]);
 
-  return (
+  useEffect(() => {
+    getUserDetails()
+  }, [])
+
+  return user ? (
     <div className="flex w-full min-h-screen bg-[#0e1510] text-white px-4 sm:px-6 lg:px-12 py-8">
       <main className="flex-1 w-full">
 
@@ -205,6 +209,10 @@ export default function AddExpensePage() {
           </Card>
         </div>
       </main>
+    </div>
+  ) : (
+    <div className="flex items-center justify-center w-full min-h-screen bg-[#0e1510] text-white px-4 sm:px-6 lg:px-12 py-8">
+      <p className="text-lg">Please log in to add or edit expenses.</p>
     </div>
   );
 }
